@@ -3,23 +3,25 @@ import Panel from './Panel';
 
 function Accordion() {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const panels = [
+    { title: 'Panel 1', content: 'Content for panel 1' },
+    { title: 'Panel 2', content: 'Content for panel 2' }
+  ];
+  if (panels.length === 0) {
+    return <div aria-label="Accordion">No panels available</div>;
+  }
   return (
-    <div>
-      <Panel
-        title="Panel 1"
-        isActive={activeIndex === 0}
-        onShow={() => setActiveIndex(0)}
-      >
-        Content for panel 1
-      </Panel>
-      <Panel
-        title="Panel 2"
-        isActive={activeIndex === 1}
-        onShow={() => setActiveIndex(1)}
-      >
-        Content for panel 2
-      </Panel>
+    <div aria-label="Accordion">
+      {panels.map((panel, idx) => (
+        <Panel
+          key={panel.title}
+          title={panel.title}
+          isActive={activeIndex === idx}
+          onShow={() => setActiveIndex(idx)}
+        >
+          {panel.content}
+        </Panel>
+      ))}
     </div>
   );
 }

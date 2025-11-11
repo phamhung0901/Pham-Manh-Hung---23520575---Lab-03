@@ -4,12 +4,12 @@ import Counter from './components/Counter';
 import Login from './components/Login';
 import Card from './components/Card';
 import Accordion from './components/Accordion';
-import TodoApp from './todo/TodoApp';
-// ...existing code...
+import TodoApp from './components/todo/TodoApp';
+import Dashboard from './components/Dashboard';
 
 function App() {
-  const user1 = { name: 'Thanh Thu', email: 'Thanhthu@gmail.com' };
-  const user2 = { name: 'Minh Quan', email: 'MinhQuan@mail.com' };
+  const user1 = { name: 'Hung Pham Manh', email: 'manhhung@gmail.com' };
+  const user2 = { name: 'Minh Quan', email: 'minhquan@gmail.com' };
 
   const styles = {
     app: {
@@ -101,6 +101,7 @@ function App() {
       </header>
 
       <main style={styles.container}>
+        <Dashboard />
         <section style={styles.hero} aria-labelledby="page-intro">
           <div>
             <h2 id="page-intro" style={{ margin: 0 }}>Overview</h2>
@@ -113,7 +114,6 @@ function App() {
             <div style={{ marginLeft: 8, fontWeight: 600 }}>{user1.name.split(' ')[0]}</div>
           </div>
         </section>
-
         <div style={styles.grid}>
           <div>
             <Card title="User Profiles" variant="elevated">
@@ -123,37 +123,29 @@ function App() {
               </div>
             </Card>
           </div>
-
           <div>
             <Card title="Counter" variant="compact">
               <Counter />
             </Card>
           </div>
-
           <div>
             <Card title="Login Form" variant="compact">
               <Login />
             </Card>
           </div>
-
           <div>
             <Card title="Accordion Example" variant="compact">
               <Accordion />
             </Card>
           </div>
-
           <div style={{ gridColumn: '1 / -1' }}>
             <Card title="Capstone: To-Do List" variant="full">
               <TodoApp />
             </Card>
           </div>
         </div>
-
         <footer style={styles.footer} role="contentinfo">
           <div>© {new Date().getFullYear()} React Lab • Built for learning</div>
-          <div style={{ marginTop: 6 }}>
-            <small style={styles.smallMuted}>Tip: try resizing the window — the layout adapts for narrow screens.</small>
-          </div>
         </footer>
       </main>
     </div>
